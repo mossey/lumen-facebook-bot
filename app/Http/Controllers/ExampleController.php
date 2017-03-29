@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Http\Request;
 class ExampleController extends Controller
 {
     /**
@@ -13,15 +13,15 @@ class ExampleController extends Controller
     {
         //
     }
-    public function facebook(){
+    public function facebook(Request $request){
 
 // parameters
         $hubVerifyToken = 'TOKEN123456abcd';
         $accessToken = "EAAbjcuvajRYBAKc0O857d7sBYqjFc18uZBlCaBP2LK3YGZCuueQAG6DHC66AMQi534qC3ZADgZBWLTZCGOMISZAYRBu2cQ6g6wcB7S6WYTESbWSGoRkY4Wts0N0f4z19nx28jWwFaYWBMZBeXKgQUrr249BgVtIao4RsP4AE1a5EQZDZD";
 
 // check token at setup
-        if ($_REQUEST['hub_verify_token'] === $hubVerifyToken) {
-            echo $_REQUEST['hub_challenge'];
+        if ($request->input('hub_verify_token') === $hubVerifyToken) {
+            echo $request->input('hub_challenge');
             exit;
         }
 
