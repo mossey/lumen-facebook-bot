@@ -17,13 +17,14 @@ class ExampleController extends Controller
 
 // parameters
         $hubVerifyToken = 'TOKEN123456abcd';
-        $accessToken = "EAAbjcuvajRYBAKc0O857d7sBYqjFc18uZBlCaBP2LK3YGZCuueQAG6DHC66AMQi534qC3ZADgZBWLTZCGOMISZAYRBu2cQ6g6wcB7S6WYTESbWSGoRkY4Wts0N0f4z19nx28jWwFaYWBMZBeXKgQUrr249BgVtIao4RsP4AE1a5EQZDZD";
+        $accessToken = "EAAC9ttF8doIBAAM0d8ZA8ag3c0oysDOrfTzUJsZBagRhz0GuZB8XkDtxVhmSkrs10tMZBEheoGvBLNpMnHmGsP7a9ZCFuNC5KTyVm8iWeAmwuSJKdY4AU42zZCsiXARETMneQMcBQ1eE8ZB9ZAvmdjWpzmXTiMuWKMlOhvqa9MbF3wZDZD";
 
 // check token at setup
         if ($request->input('hub_verify_token') === $hubVerifyToken) {
             echo $request->input('hub_challenge');
             exit;
         }
+
 
 // handle bot's anwser
         $input = json_decode(file_get_contents('php://input'), true);
